@@ -16,4 +16,7 @@ main {
   width: 100vw;
   height:  100vh;
 }
-
+.logo{
+  width: 100vh;
+  margin-left: 34vw;
+}
