@@ -7,8 +7,13 @@
   </head>
   <body>
     <main>
-      <input type="search" placeholder="search" id="searchBar" />
-      <div id="container"></div>
+      <section class="searchbar">
+      <input type="search" placeholder="search" id="searchBar"/>
+      <h2>Sort by</h2>
+      <label><input type="radio" id="most-likes" name="sortBy" value="likes" checked>Likes  &#8593;</label>
+      <label><input type="radio" id="least-likes" name="sortBy" value="likes" checked>Likes  &#8595;</label>
+    </section>
+      <div id="container" class="container"></div>
     </main>
     <script type="module" src="./js/index.js"></script>
   </body>

@@ -15,7 +15,8 @@ const renderArticles = async (query) => {
   main.innerHTML = "";
   //haalt articles op
   const articles = await api(api_url);
-  const searchByQuery = query ? articles.news.filter(({ title }) => title.toLowerCase().includes(query.toLowerCase())) : articles.news;
+  console.log(articles);
+const searchByQuery = query ? articles.news.filter(({ title }) => title.toLowerCase().includes(query.toLowerCase())) : articles.news;  
   //articles sorteren meeste naar minste sorteren
   const sortedArticles = searchByQuery.sort((a, b) => b.likes - a.likes);
 
@@ -28,10 +29,10 @@ const renderArticles = async (query) => {
       $article.innerHTML = `
         <h1>likes: ${likes}</h1>
         <h3>${title}</h3>
-        <div>${content}</div>
+        <div class="information">${content}</div>
         ${imageURI != "" && `<img src="${imageURI}"/>`}
         <p>${publicationDate}</p>
-        <button data-like="${UUID}">Like article</button>
+        <div class="middle"><button class="text" data-like="${UUID}">&hearts;</button></div>
     `;
       main.append($article);
     }
@@ -58,3 +59,17 @@ main.addEventListener("click", ({ target }) => {
 });
 
 const search = (query) => {};
+
+
+//sort function
+/* initEvents: function() {
+  const sortRadios = document.getElementsByName('sortBy');
+  sortRadios.forEach(function(radio) {
+    radio.addEventListener('change', function(event) {
+      $article.userInput.selectedSort = this.value;
+      $article.applyAll();
+    });
+  });
+}
+
+  articles.initEvents(); */
