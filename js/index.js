@@ -19,7 +19,12 @@ const renderArticles = async (query) => {
 const searchByQuery = query ? articles.news.filter(({ title }) => title.toLowerCase().includes(query.toLowerCase())) : articles.news;  
   //articles sorteren meeste naar minste sorteren
   const sortedArticles = searchByQuery.sort((a, b) => b.likes - a.likes);
-
+/*   const sortedArticles = searchByQuery.forEach(function(radio){
+    const selectedSort = document.getElementsByName('sortBy');
+    selectedSort.addEventListener('change', function(e){
+      searchByQuery.userInput.selectedSort = this.likes;
+    });
+  }); */
   //krijgt array terug met allemaal dom elementen
   const rendered = sortedArticles.forEach(
     ({ likes, title, content, UUID, imageURI, publicationDate }) => {
@@ -27,12 +32,11 @@ const searchByQuery = query ? articles.news.filter(({ title }) => title.toLowerC
       //zet ze in een nieuw element genaamd article
       const $article = document.createElement("article");
       $article.innerHTML = `
-        <h1>likes: ${likes}</h1>
         <h3>${title}</h3>
         <div class="information">${content}</div>
         ${imageURI != "" && `<img src="${imageURI}"/>`}
         <p>${publicationDate}</p>
-        <div class="middle"><button class="text" data-like="${UUID}">&hearts;</button></div>
+        <div class="middle"><button class="text" data-like="${UUID}">&hearts;</button> <h1>likes: ${likes}</h1> </div>
     `;
       main.append($article);
     }
@@ -62,14 +66,13 @@ const search = (query) => {};
 
 
 //sort function
-/* initEvents: function() {
-  const sortRadios = document.getElementsByName('sortBy');
-  sortRadios.forEach(function(radio) {
-    radio.addEventListener('change', function(event) {
-      $article.userInput.selectedSort = this.value;
-      $article.applyAll();
-    });
-  });
-}
-
-  articles.initEvents(); */
+const sortLikes = (likes) =>{
+const sortRadios = document.getElementsByName('sortBy');
+      sortRadios.forEach(function(radio) {
+        radio.addEventListener('change', function(event) {
+          likes.userInput.selectedSort = this.value;
+          likes.applyAll();
+        });
+      });
+    };
+  sortLikes();

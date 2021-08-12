@@ -32,6 +32,7 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 align-items: flex-end;
+margin-bottom: 5vh;
 }
 .searchbar{
     display: flex;
@@ -40,16 +41,18 @@ align-items: flex-end;
     align-content: center;
 }
 h1{
-  margin-right:  2vw;
+  margin: 0 auto;
+  float: left;
 }
 h3{
   color: #e3001b;
+  margin: auto;
 }
 
 .information{
   max-width: 90vw;
-  margin-left: 1%;
-  margin-bottom: 1%;
+  margin: 0 auto;
+  margin-bottom: 5vh;
 }
 /* styling hover and img like */
 .container {
@@ -62,9 +65,10 @@ img {
   display: block;
   transition: .5s ease;
   backface-visibility: hidden;
-  margin-bottom: 10vh;
+ 
   height: 300px;
   object-fit: cover;
+  margin: auto;
 }
 
 /* .middle {
@@ -91,5 +95,9 @@ img {
   color: white;
   font-size: 36px;
   padding: 16px 32px;
-  transform: translate(20px, -9vh);
+  transform: translate(-53vw, -15vh);
+  opacity: 0.2;
 } 
+.text:hover{
+  opacity: 1;
+}
