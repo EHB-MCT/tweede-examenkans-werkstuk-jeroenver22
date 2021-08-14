@@ -10,8 +10,12 @@
       <section class="searchbar">
       <input type="search" placeholder="search" id="searchBar"/>
       <h2>Sort by</h2>
-      <label><input type="radio" id="most-likes" name="sortBy" value="likes" checked>Likes  &#8593;</label>
-      <label><input type="radio" id="least-likes" name="sortBy" value="likes" checked>Likes  &#8595;</label>
+
+      <form id="sortFn">
+        <label><input type="radio" id="most-likes" name="sortBy" value="asc" checked>Likes  &#8593;</label>
+        <label><input type="radio" id="least-likes" name="sortBy" value="desc" checked>Likes  &#8595;</label>
+      </form>
+     
     </section>
       <div id="container" class="container"></div>
     </main>
